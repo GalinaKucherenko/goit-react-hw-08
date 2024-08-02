@@ -3,6 +3,10 @@ import axios from "axios";
 
 axios.defaults.baseURL = 'https://connections-api.goit.global/';
 
+const setAuthHeader = (token) => {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
 export const register = createAsyncThunk(
     'auth/register',
     async (newUser, thunkAPI) => {
@@ -38,3 +42,24 @@ export const logOut = createAsyncThunk(
             return thunkAPI.rejectWithValue(error.message);
         }
     });
+
+export const refreshUser = createAsyncThunk(
+    'auth/refresh',
+    async (_, thunkAPI) => {
+        const reduxState = thunkAPI.getState();
+        setAuthHeader(reduxState.auth.token);
+        
+        try {
+            const response = await axios.get('/users/current');
+            return response.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    },
+    {
+        condition: (_, thunkAPI) => {
+            const reduxState = thunkAPI.getState;
+            return reduxState.auth.token !== null;
+        },
+    }
+);
