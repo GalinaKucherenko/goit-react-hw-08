@@ -12,7 +12,7 @@ const filtersSlice = createSlice({
     }
 });
 
+export const { changeFilter } = filtersSlice.actions;
 export const selectTextFilter = (state) => state.filters.text;
 
-export const { changeFilter } = filtersSlice.actions;
 export default filtersSlice.reducer;

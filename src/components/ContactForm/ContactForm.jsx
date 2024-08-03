@@ -19,6 +19,7 @@ export default function ContactForm() {
     const dispatch = useDispatch();
 
     const handleSubmit = (values, actions) => {
+        console.log('Form Values:', values);
         dispatch(addContacts(values));
         actions.resetForm();
     };    
@@ -44,8 +45,7 @@ export default function ContactForm() {
                         <Field className={css.input} type="text" name="number" />
                         <ErrorMessage className={css.error} name="number" component="span"/>
                     </div>
-                    <button className={css.button} type="submit">Add contact</button>
-                
+                <button className={css.button} type="submit">Add contact</button>                
             </Form>
         </Formik>
     );

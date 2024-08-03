@@ -1,5 +1,5 @@
 .list {
-    width: 1000px;
+    width: 840px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -8,9 +8,9 @@
     
 }
 .item {
-    
-    border: 2px solid #5c5959;
+    border: 2px solid darkslategrey;
     border-radius: 4px;
+    background-color: rgb(173, 202, 206);
     list-style: none;
     box-sizing: border-box;
     width: 260px;

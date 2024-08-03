@@ -5,11 +5,10 @@
     margin-left: auto;
     gap: 20px;
 }
-.link {
-    text-decoration: none;
-    text-align: center;
-    color: black;
-    font-size: 18px;
+.text {
+    font-size: 20px;
+}
+.btn {
     border: 1px solid #fff;
     border-radius: 4px;
     background-color: #fff;
@@ -18,8 +17,7 @@
     height: 100%;
     padding: 2px;
 }
-
-.link:hover {
+.btn:hover {
     color: #fff;
     background-color: #161515;
     border: 1px solid #161515;
